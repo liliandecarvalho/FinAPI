@@ -1,4 +1,5 @@
 module.exports = {
+    ultimoID: 1,
     banco: {
         nome: 'MoneyLink Bank',
         numero: '123',
