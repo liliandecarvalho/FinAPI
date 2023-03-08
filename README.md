@@ -1,17 +1,3 @@
-# Nome do meu projeto
+# FinAPI
 
-Rápida descrição do objetivo de fazer esse projeto
-
-| :placard: Vitrine.Dev |     |
-| -------------  | --- |
-| :sparkles: Nome        | **Titulo do meu projeto**
-| :label: Tecnologias | java, html, ruby, c# (tecnologias utilizadas)
-| :rocket: URL         | https://url-deploy.com.br
-| :fire: Desafio     | https://url-do-desafio.com.br
-
-<!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
-
-## Detalhes do projeto
-
-Textos e imagens que descrevam seu projeto, suas conquistas, seus desafios, próximos passos, etc...
+API para Banco Digital, desenvolvida como projeto do desafio do módulo II de back-end no curso intensivo de Desenvolvimento de Software na Cubos Academy.
