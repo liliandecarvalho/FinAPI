@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/liliandecarvalho/FinAPI#readme",
   "dependencies": {
+    "date-fns": "^2.29.3",
     "express": "^4.18.2"
   },
   "devDependencies": {
