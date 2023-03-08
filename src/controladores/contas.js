@@ -1,4 +1,4 @@
-let { banco, contas, ultimoID } = require('../bancodedados');
+let { banco, contas, ultimoID, saques, depositos, transferencias } = require('../bancodedados');
 
 const listarContas = (req, res) => {
     const { senha_banco } = req.query;
@@ -129,10 +129,44 @@ const consultarSaldo = (req, res) => {
 
 }
 
+const consultarExtrato = (req, res) => {
+    const { numero_conta, senha } = req.query;
+
+    if (!numero_conta || !senha) {
+        return res.status(400).json({ mensagem: 'O número da conta e senha são obrigatórios!' });
+    }
+
+    const contaEncontrada = contas.find(conta => Number(conta.numero) === Number(numero_conta));
+
+    if (!contaEncontrada) {
+        return res.status(404).json({ mensagem: 'Conta não encontrada!' });
+    }
+
+    if (contaEncontrada.usuario.senha !== senha) {
+        return res.status(400).json({ mensagem: 'Senha inválida!' })
+    }
+
+    const extratoDepositos = depositos.filter(deposito => Number(deposito.numero_conta) === Number(numero_conta));
+
+    const extrtoSaques = saques.filter(saque => Number(saque.numero_conta) === Number(numero_conta));
+
+    const transferenciasEnviadas = transferencias.filter(transferencia => Number(transferencia.numero_conta_origem) === Number(numero_conta));
+
+    const transferenciasRecebidas = transferencias.filter(transferencia => Number(transferencia.numero_conta_destino) === Number(numero_conta));
+
+    return res.json({
+        depositos: extratoDepositos,
+        saques: extrtoSaques,
+        transferenciasEnviadas,
+        transferenciasRecebidas
+    });
+}
+
 module.exports = {
     listarContas,
     criarConta,
     atualizarUsuarioConta,
     excluirConta,
-    consultarSaldo
+    consultarSaldo,
+    consultarExtrato
 }

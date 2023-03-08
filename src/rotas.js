@@ -9,6 +9,7 @@ rotas.post('/contas', contas.criarConta);
 rotas.put('/contas/:numeroConta/usuario', contas.atualizarUsuarioConta);
 rotas.delete('/contas/:numeroConta', contas.excluirConta);
 rotas.get('/contas/saldo', contas.consultarSaldo);
+rotas.get('/contas/extrato', contas.consultarExtrato);
 
 rotas.post('/transacoes/depositar', transacoes.depositar);
 rotas.post('/transacoes/sacar', transacoes.sacar);
